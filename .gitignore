@@ -13,3 +13,8 @@ server/.env
 
 # macOS
 .DS_Store
+
+node_modules/
+.env*
+
+__pycache__/
