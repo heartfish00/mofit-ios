@@ -2,6 +2,7 @@ import AVFoundation
 import Combine
 import Foundation
 import SwiftData
+import UIKit
 import Vision
 
 enum TrackingState: Equatable {
@@ -178,14 +179,32 @@ final class TrackingViewModel: ObservableObject {
             } else if let startTime = palmDetectionStartTime,
                       Date().timeIntervalSince(startTime) >= 1.0 {
                 palmDetectionStartTime = nil
-                triggerPalmAction()
+                triggerSetAction()
             }
         } else {
             palmDetectionStartTime = nil
         }
     }
 
-    private func triggerPalmAction() {
+    func handleScreenTap() {
+        switch state {
+        case .idle:
+            triggerSetAction()
+        case .tracking:
+            guard currentReps > 0 else { return }
+            triggerHapticFeedback()
+            triggerSetAction()
+        case .countdown, .setComplete:
+            return
+        }
+    }
+
+    private func triggerHapticFeedback() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+    }
+
+    private func triggerSetAction() {
         switch state {
         case .idle:
             startCountdown()

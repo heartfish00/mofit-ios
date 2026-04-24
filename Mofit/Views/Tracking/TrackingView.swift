@@ -38,6 +38,8 @@ struct TrackingView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                     .padding(.bottom, 60)
             }
+            .contentShape(Rectangle())
+            .onTapGesture { viewModel.handleScreenTap() }
             .onAppear {
                 viewModel.viewSize = geometry.size
                 UIApplication.shared.isIdleTimerDisabled = true
@@ -79,7 +81,7 @@ struct TrackingView: View {
     }
 
     private var idleOverlay: some View {
-        Text("손바닥을 보여주세요")
+        Text("손바닥을 보여주거나 화면을 탭하세요")
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(.white)
@@ -126,9 +128,15 @@ struct TrackingView: View {
                 Spacer()
             }
 
-            Text("\(viewModel.currentReps)")
-                .font(.system(size: 100, weight: .bold))
-                .foregroundColor(Theme.neonGreen)
+            VStack(spacing: 8) {
+                Text("\(viewModel.currentReps)")
+                    .font(.system(size: 100, weight: .bold))
+                    .foregroundColor(Theme.neonGreen)
+                Text("끝낼 땐 화면을 탭하거나 손바닥을 보여주세요")
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .opacity(0.7)
+            }
         }
     }
 
