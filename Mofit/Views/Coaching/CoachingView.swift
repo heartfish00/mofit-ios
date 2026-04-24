@@ -146,8 +146,16 @@ struct CoachingView: View {
                         .font(.headline)
                         .foregroundColor(Theme.textPrimary)
 
-                    ForEach(CoachingSamples.all) { sample in
-                        sampleFeedbackCard(sample: sample)
+                    if let profile = profile {
+                        let samples = CoachingSampleGenerator.generate(
+                            input: makeGenInput(profile: profile, sessions: Array(sessions)),
+                            now: Date()
+                        )
+                        ForEach(samples) { sample in
+                            sampleFeedbackCard(sample: sample)
+                        }
+                    } else {
+                        onboardingCTACard
                     }
                 }
                 .padding(.horizontal, 16)
@@ -206,6 +214,46 @@ struct CoachingView: View {
             Text("※ 예시 피드백 (실제 데이터 기반으로 매번 다름)")
                 .font(.caption)
                 .foregroundColor(Theme.textSecondary)
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.cardBackground)
+        .cornerRadius(16)
+    }
+
+    private func makeGenInput(profile: UserProfile, sessions: [WorkoutSession]) -> CoachingGenInput {
+        CoachingGenInput(
+            gender: profile.gender,
+            height: profile.height,
+            weight: profile.weight,
+            bodyType: profile.bodyType,
+            goal: profile.goal,
+            recentSessions: sessions.map { session in
+                CoachingGenSession(
+                    startedAt: session.startedAt,
+                    endedAt: session.endedAt,
+                    totalDuration: session.totalDuration,
+                    repCounts: session.repCounts
+                )
+            }
+        )
+    }
+
+    private var onboardingCTACard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "person.crop.circle.badge.exclamationmark")
+                    .foregroundColor(Theme.neonGreen)
+                Text("온보딩을 먼저 완료해주세요")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            Text("프로필 정보가 있어야 맞춤 샘플 피드백을 만들어 드려요.")
+                .font(.footnote)
+                .foregroundColor(Theme.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)

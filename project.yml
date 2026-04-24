@@ -9,6 +9,8 @@ settings:
   base:
     SWIFT_VERSION: "5.9"
     GENERATE_INFOPLIST_FILE: YES
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: "1.0"
 
 targets:
   Mofit:
@@ -33,6 +35,19 @@ targets:
       - sdk: Vision.framework
       - sdk: Security.framework
 
+  MofitTests:
+    type: bundle.unit-test
+    platform: iOS
+    dependencies:
+      - target: Mofit
+    sources:
+      - path: MofitTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mofit.tests
+        GENERATE_INFOPLIST_FILE: YES
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+
 schemes:
   Mofit:
     build:
@@ -42,3 +57,7 @@ schemes:
       config: Debug
     archive:
       config: Release
+    test:
+      targets:
+        - MofitTests
+      config: Debug

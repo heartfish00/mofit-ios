@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07C99833CB9BB91184414957 /* SitUpCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6CD322D959982326B5A6C /* SitUpCounter.swift */; };
 		094163C9DEF51C3EE39D9614 /* ClaudeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF3318085666DEC44477C3 /* ClaudeAPIService.swift */; };
+		0CED60655B66AE9BCBC2632E /* CoachingSampleGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F841E38F7056B8339909DF /* CoachingSampleGeneratorTests.swift */; };
 		16FCD4175557A3FA0112085B /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9AEF1F00E6ACCA4EDBAD2B /* UserProfile.swift */; };
 		1B9A22903E537DBBF96DCFE9 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91365E96256337D2E97E8863 /* RecordsView.swift */; };
 		1C2177794EB9BD19137555EC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655C566EBCE93BDBD01C0C7 /* SignUpView.swift */; };
@@ -45,13 +46,25 @@
 		FC61F52F4D83E866DCCBAB3B /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F061DD367B749E119DED559 /* APIConfig.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0FCF96BAAD228CF7A80C5F42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6729E0742E1B4115D4A112AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32591D02772FBE7F7A3F7895;
+			remoteInfo = Mofit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		01697F3A0BA0AD6E17FC6B10 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		01CAF0F33617545D6CFC1B30 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
 		0575C1AFEE200A1F9A7FF95F /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		1158905F483172755B0524FC /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		16F841E38F7056B8339909DF /* CoachingSampleGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachingSampleGeneratorTests.swift; sourceTree = "<group>"; };
 		214EA30ADD81F450DEA7E3C9 /* MofitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MofitApp.swift; sourceTree = "<group>"; };
 		22A6CD322D959982326B5A6C /* SitUpCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitUpCounter.swift; sourceTree = "<group>"; };
+		25A25E04E5D1E66C7CD926FA /* MofitTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MofitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2991015B131E0C12551EFC35 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3F061DD367B749E119DED559 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		4535905A61EC5F7A0653DBFB /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
@@ -170,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				AAF026B1546FA243B6007EB4 /* Mofit.app */,
+				25A25E04E5D1E66C7CD926FA /* MofitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +194,14 @@
 				91365E96256337D2E97E8863 /* RecordsView.swift */,
 			);
 			path = Records;
+			sourceTree = "<group>";
+		};
+		6B266A9E3501C4DC5DA5BBCA /* MofitTests */ = {
+			isa = PBXGroup;
+			children = (
+				16F841E38F7056B8339909DF /* CoachingSampleGeneratorTests.swift */,
+			);
+			path = MofitTests;
 			sourceTree = "<group>";
 		};
 		6BB4CC37EA51BEEE96594A03 /* Config */ = {
@@ -195,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				B49858869120FF23A1FF6B5B /* Mofit */,
+				6B266A9E3501C4DC5DA5BBCA /* MofitTests */,
 				C4CCD02BEB013A28BB9711BD /* Frameworks */,
 				4F1209792DEF530D5589AEB1 /* Products */,
 			);
@@ -309,6 +332,24 @@
 			productReference = AAF026B1546FA243B6007EB4 /* Mofit.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DBD8CAD33E67E5571149DA01 /* MofitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F52B6A7B4C4A24BD8D4F8279 /* Build configuration list for PBXNativeTarget "MofitTests" */;
+			buildPhases = (
+				8E203048D949AE91B3938A86 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19A8A2AFD2C1BEBAA5EBAB38 /* PBXTargetDependency */,
+			);
+			name = MofitTests;
+			packageProductDependencies = (
+			);
+			productName = MofitTests;
+			productReference = 25A25E04E5D1E66C7CD926FA /* MofitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,6 +376,7 @@
 			projectRoot = "";
 			targets = (
 				32591D02772FBE7F7A3F7895 /* Mofit */,
+				DBD8CAD33E67E5571149DA01 /* MofitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,7 +420,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E203048D949AE91B3938A86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CED60655B66AE9BCBC2632E /* CoachingSampleGeneratorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19A8A2AFD2C1BEBAA5EBAB38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32591D02772FBE7F7A3F7895 /* Mofit */;
+			targetProxy = 0FCF96BAAD228CF7A80C5F42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		24F654B1FAFBE6076EDDE236 /* Debug */ = {
@@ -415,6 +473,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -434,6 +493,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -499,6 +559,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -512,6 +573,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -542,6 +604,42 @@
 			};
 			name = Debug;
 		};
+		94F925C47E6FA72F500247A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mofit.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mofit.app/Mofit";
+			};
+			name = Debug;
+		};
+		D47FEAB2D99D3ECCB6861104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mofit.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mofit.app/Mofit";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -559,6 +657,15 @@
 			buildConfigurations = (
 				82499E51EBCFDF730EAE0D2E /* Debug */,
 				2D8794048F7EAAFAC3962495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F52B6A7B4C4A24BD8D4F8279 /* Build configuration list for PBXNativeTarget "MofitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94F925C47E6FA72F500247A3 /* Debug */,
+				D47FEAB2D99D3ECCB6861104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
