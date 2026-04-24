@@ -1,0 +1,11 @@
+{
+  "project": "Mofit",
+  "task": "camera-permission-recovery",
+  "prompt": "iterations/8-20260424_234219/requirement.md — 카메라 권한 거부 복구 플로우 (설정 딥링크 + 권한 상태별 폴백 UI, ADR-019 신설). run_id home-workout-newbie-20s_20260424_234401 keyman drop 경로(페르소나 reject_trigger '카메라 권한 없으면 아무것도 못함')를 코드 레벨 공백(현 CameraManager.swift 권한 요청 코드 전무)과 1:1로 해소. TrackingView 상단 3분기(authorized/denied·restricted/notDetermined) + HomeView 배지(.denied/.restricted 만) + UIApplication.shared.open 딥링크 + Foundation-only pure struct CameraPermissionResolver + MofitTests 4 케이스. CTO 조건 1 일반화 금지, 2 .notDetermined 배지 금지, 3 영상 저장/전송 0 사실 정합, 4 싱글톤/추상화 금지, 5 실기기 QA 필수화 금지.",
+  "totalPhases": 2,
+  "created_at": "2026-04-25T00:06:09+0900",
+  "phases": [
+    { "phase": 0, "name": "docs", "status": "pending" },
+    { "phase": 1, "name": "permission-flow-impl", "status": "pending" }
+  ]
+}
