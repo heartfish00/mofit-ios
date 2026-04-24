@@ -30,11 +30,11 @@ Mofit/
 │       └── ProfileEditView.swift
 │
 ├── ViewModels/
-│   ├── TrackingViewModel.swift     # 핵심. 상태 머신 + 카메라 + 포즈 + 카운팅
+│   ├── TrackingViewModel.swift     # 핵심. 상태 머신 + 카메라 + 포즈 + 카운팅 + DiagnosticHintEvaluator(2종 힌트)
 │   └── CoachingViewModel.swift     # API 호출 + 횟수 관리
 │
 ├── Services/
-│   ├── PoseDetectionService.swift  # VNDetectHumanBodyPoseRequest 래퍼
+│   ├── PoseDetectionService.swift  # VNDetectHumanBodyPoseRequest 래퍼. detectPoseDetailed → PoseFrameResult(joints + 하체 avg confidence + 양쪽 완전성)
 │   ├── HandDetectionService.swift  # VNDetectHumanHandPoseRequest 래퍼
 │   ├── SquatCounter.swift          # 관절 각도 → rep 판정
 │   ├── ClaudeAPIService.swift      # Claude API 호출

@@ -78,6 +78,24 @@ AVCaptureSession (전면)
            └─ VNDetectHumanHandPoseRequest → 손바닥 판정
 ```
 
+### 2.5 트래킹 진단 힌트
+
+트래킹 상태에서 rep 카운트가 안 올라가는 원인을 1줄 배너로 안내. 2종 고정(.outOfFrame / .lowLight), ADR-018.
+
+- **판정 조건**
+  - `.outOfFrame`: **양쪽 hip/knee/ankle 중 어느 쪽도 3조인트 모두 검출되지 않은 상태** (= `SquatCounter` 가 angle 을 계산할 수 없는 조건) 가 3초 연속 지속.
+  - `.lowLight`: 하체 조인트(6개 중 검출분) 평균 confidence < 0.5 가 3초 연속 지속. outOfFrame 이 아닐 때만 평가.
+  - 우선순위: outOfFrame > lowLight.
+- **표시 규칙**
+  - 트래킹 시작 후 최소 5초 grace (카메라 안정화).
+  - 한 세션(TrackingView lifecycle) 내 rep 한 번이라도 카운트되면 힌트 숨김 + 재표시 금지.
+  - 세트 경계(setComplete → 다음 countdown → tracking) 에서 evaluator 상태 리셋 금지.
+  - 상단 반투명 배너 형태, 하단 종료 버튼 시야 가리지 않음.
+- **카피 (고정 2종)**
+  - `.outOfFrame`: "전신이 프레임에 들어오는지 확인하세요 (2~3m 거리 권장)"
+  - `.lowLight`: "조명이 어두울 수 있어요 · 실내 조명을 밝혀주세요"
+- **튜닝 대상**: grace 5s, sustain 3s, lowLight confidence 0.5. 전부 `TrackingViewModel` 내 `private enum Diagnostic` 에 상수화. 운영 중 튜닝은 이 enum 만 수정.
+
 ---
 
 ## 3. 데이터 모델
