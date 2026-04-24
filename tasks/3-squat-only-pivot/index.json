@@ -1,0 +1,11 @@
+{
+  "project": "Mofit",
+  "task": "squat-only-pivot",
+  "prompt": "iteration 4 (run_id: home-workout-newbie-20s_20260424_193756) 요구사항(iterations/4-20260424_193445/requirement.md) 구현: 포지셔닝을 '스쿼트 전용 카운터'로 좁힘. ExercisePickerView 파일 삭제 + HomeView 드롭다운/sheet 제거 + startButton 라벨 '운동 시작'→'스쿼트 시작' + 오늘의 기록 rep 라벨→'스쿼트' + docs/README 카피 정돈 + ADR-017 추가(ADR-008/016 SUPERSEDED). CTO 승인 조건부 4개 엄수: (1) TrackingViewModel exerciseType 분기·PushUpCounter/SitUpCounter 파일 무변경, (2) ExercisePickerView 전체 삭제 + HomeView exerciseSelector 드롭다운 제거, (3) 미래 약속 문구(곧 지원됩니다 등) 금지, (4) xcodebuild 통과 확인. 신규 XCTest 없음. 2-phase: docs → 코드(삭제+편집+빌드).",
+  "totalPhases": 2,
+  "created_at": "2026-04-24T19:55:37+0900",
+  "phases": [
+    { "phase": 0, "name": "docs", "status": "pending" },
+    { "phase": 1, "name": "squat-only-code", "status": "pending" }
+  ]
+}
