@@ -1,3 +1,4 @@
+import AVFoundation
 import SwiftData
 import SwiftUI
 
@@ -13,6 +14,8 @@ struct HomeView: View {
     @State private var showProfileEdit = false
     @State private var showTracking = false
     @State private var showConfetti = false
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var cameraStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
 
     private var todaySessions: [WorkoutSession] {
         let calendar = Calendar.current
@@ -70,9 +73,12 @@ struct HomeView: View {
 
                 ScrollView {
                     VStack(spacing: 24) {
-                        startButton
-                            .padding(.horizontal)
-                            .padding(.top, 32)
+                        VStack(spacing: 8) {
+                            startButton
+                            cameraPermissionBadge
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 32)
 
                         todaySummaryCard
                             .padding(.horizontal)
@@ -116,6 +122,14 @@ struct HomeView: View {
         .onChange(of: showTracking) { _, isShowing in
             if !isShowing && authManager.isLoggedIn {
                 Task { await loadServerData() }
+            }
+        }
+        .onAppear {
+            refreshCameraStatus()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
+                refreshCameraStatus()
             }
         }
     }
@@ -173,6 +187,30 @@ struct HomeView: View {
                 .background(Theme.neonGreen)
                 .cornerRadius(16)
         }
+    }
+
+    @ViewBuilder
+    private var cameraPermissionBadge: some View {
+        if cameraStatus == .denied || cameraStatus == .restricted {
+            HStack(spacing: 6) {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.caption)
+                    .foregroundColor(.orange)
+                Text("카메라 권한 필요")
+                    .font(.caption)
+                    .foregroundColor(.orange)
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(Color.orange.opacity(0.15))
+            .cornerRadius(8)
+        } else {
+            EmptyView()
+        }
+    }
+
+    private func refreshCameraStatus() {
+        cameraStatus = AVCaptureDevice.authorizationStatus(for: .video)
     }
 
     private var todaySummaryCard: some View {
