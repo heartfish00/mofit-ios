@@ -1,0 +1,11 @@
+{
+  "project": "Mofit",
+  "task": "tap-fallback",
+  "prompt": "iteration 3 (run_id: home-workout-newbie-20s_20260424_163049)의 요구사항(iterations/3-20260424_162818/requirement.md) 구현: 손바닥 인식 실패로 카운트다운 진입이 막히는 '3분 컷' 이탈 경로를 차단. idle 진입 즉시 ZStack 전체에 .onTapGesture를 부착하고 서브카피 '손바닥을 보여주거나 화면을 탭하세요'로 즉시 인지 유도. tracking에서는 currentReps > 0일 때만 화면 탭으로 setComplete 진입(햅틱 피드백 동반). stopButton/closeButton은 SwiftUI Button의 hit-test 우선순위로 역할 분리. CTO 조건부 5개: (1) 햅틱 피드백, (2) currentReps > 0 가드, (3) caption .caption + .opacity(0.7), (4) 실기기 손바닥 경로 회귀 확인 QA, (5) triggerPalmAction → triggerSetAction rename. XCTest target 신설 없음 — AC grep + xcodebuild + qa-checklist 14항목으로 전량 커버.",
+  "totalPhases": 2,
+  "created_at": "2026-04-24T16:51:17+0900",
+  "phases": [
+    { "phase": 0, "name": "docs", "status": "pending" },
+    { "phase": 1, "name": "tap-impl", "status": "pending" }
+  ]
+}
