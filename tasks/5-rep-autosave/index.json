@@ -1,0 +1,11 @@
+{
+  "project": "Mofit",
+  "task": "rep-autosave",
+  "prompt": "iterations/6-20260424_214957/requirement.md — 트래킹 중 rep 단위 autosave (인터럽션/크래시/전화 시에도 기록은 남는다, 비로그인 경로 한정 Phase 1). persist 시점을 세트 시작으로 이동 + 매 rep 마다 SwiftData save + 0rep 세션은 RecordsView 필터로 숨김. 로그인 유저 경로 불변. isInProgress/이어하기 UI/analytics 이벤트 추가 금지.",
+  "totalPhases": 2,
+  "created_at": "2026-04-24T22:20:59+0900",
+  "phases": [
+    { "phase": 0, "name": "docs", "status": "pending" },
+    { "phase": 1, "name": "autosave-impl", "status": "pending" }
+  ]
+}
